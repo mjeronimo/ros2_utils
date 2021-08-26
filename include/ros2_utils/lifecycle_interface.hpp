@@ -21,7 +21,7 @@ namespace ros2_utils
 class LifecycleInterface
 {
 public:
-  virtual LifecycleInterface = default;
+  virtual ~LifecycleInterface() = default;
 
   virtual void configure() = 0;
   virtual void activate() = 0;
