@@ -9,11 +9,11 @@ find_package(rclcpp_lifecycle REQUIRED)
 find_package(sensor_msgs REQUIRED)
 
 set(dependencies
-    cv_bridge
-    lifecycle_msgs
-    rclcpp
-    rclcpp_lifecycle
-    sensor_msgs
+  cv_bridge
+  lifecycle_msgs
+  rclcpp
+  rclcpp_lifecycle
+  sensor_msgs
 )
 
 if(NOT CMAKE_CXX_STANDARD)
@@ -33,7 +33,6 @@ set(library_name ${PROJECT_NAME}_core)
 add_library(${library_name} SHARED
   src/cv_utils.cpp
   src/lifecycle_service_client.cpp
-  src/lifecycle_utils.cpp
   src/node_thread.cpp
   src/node_utils.cpp
   src/param_utils.cpp
@@ -42,17 +41,8 @@ add_library(${library_name} SHARED
 
 ament_target_dependencies(${library_name} ${dependencies})
 
-add_executable(lifecycle_bringup
-  src/lifecycle_bringup_commandline.cpp
-)
-target_link_libraries(lifecycle_bringup ${library_name})
-
 install(DIRECTORY include/
   DESTINATION include/
-)
-
-install(TARGETS lifecycle_bringup
-  RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
 
 install(TARGETS ${library_name}
