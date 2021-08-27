@@ -23,7 +23,6 @@
 #include "ros2_utils/node_utils.hpp"
 
 using std::chrono::seconds;
-using std::chrono::high_resolution_clock;
 
 namespace ros2_utils
 {

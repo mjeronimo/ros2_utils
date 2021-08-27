@@ -36,7 +36,6 @@ add_library(${library_name} SHARED
   src/node_thread.cpp
   src/node_utils.cpp
   src/param_utils.cpp
-  src/string_utils.cpp
 )
 
 ament_target_dependencies(${library_name} ${dependencies})
